@@ -25,22 +25,24 @@
 
     <div class="am-margin am-animation-slide-left"><img src="images/mascot.png"/></div>
     <div class="am-container ">
+        <form>
         <div class="am-margin am-animation-slide-right">
-            <input class=" am-form-field" type="text" placeholder="一个钟意的名字">
+            <input id="app_name" class=" am-form-field" type="text" placeholder="一个钟意的名字">
         </div>
         <div class="am-margin am-animation-slide-left">
-            <input class="am-form-field" type="text" placeholder="一个独特的包名">
+            <input id="app_package" class="am-form-field" type="text" placeholder="一个独特的包名">
         </div>
         <div class="am-margin am-animation-slide-right">
-            <input class="am-form-field" type="text" placeholder="一个好记的地址">
+            <input id="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">
         </div>
         <div class="am-margin am-panel am-panel-default am-animation-slide-left">
             <div class="am-panel-bd">
                 <p class="am-form-help">一张个性的图片</p>
-                <input type="file" id="doc-ipt-file-1">
+                <input id="app_icon" type="file" id="doc-ipt-file-1">
             </div>
         </div>
-        <button id="submitButton" class="am-margin am-btn am-btn-success am-animation-slide-right"> 按下按钮并稍作等待</button>
+        </form>
+        <button id="submitButton" class="am-margin am-btn am-btn-success am-animation-slide-right">按下按钮并稍作等待</button>
     </div>
 </div>
 <script src="http://libs.baidu.com/zepto/1.1.3/zepto.min.js"></script>
@@ -53,7 +55,8 @@
         $btn.button('loading');
         $.ajax({
             type:"POST",
-            url:"/createApp"
+            url:"/createApp",
+            data:"hehehhe"
         });
         setTimeout(function () {
             $btn.button('reset');

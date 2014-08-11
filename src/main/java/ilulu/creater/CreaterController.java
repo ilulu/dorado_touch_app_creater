@@ -7,6 +7,7 @@ import com.jfinal.core.Controller;
  */
 public class CreaterController extends Controller {
     public void index(){
-        System.out.print("ahhahahahah");
+        String p=getPara(0);
+        renderJson("hehe");
     }
 }
