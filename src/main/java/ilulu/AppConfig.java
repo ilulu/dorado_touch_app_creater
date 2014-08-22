@@ -14,7 +14,6 @@ public class AppConfig extends JFinalConfig {
 
     @Override
     public void configRoute(Routes routes) {
-        routes.add("/hello",HelloController.class);
         routes.add("/createApp", CreaterController.class);
     }
 
