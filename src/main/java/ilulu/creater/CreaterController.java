@@ -20,6 +20,6 @@ public class CreaterController extends Controller {
 
         GenerateProject generateProject=new GenerateProject();
         generateProject.generateAndroidProject(appPackage,appName,appUrl);
-        renderFile("/Users/ilulu/dev/testbox/platforms/android/ant-build/TestBox-debug.apk");
+        renderFile("/upload/"+appName+".apk");
     }
 }

@@ -1,5 +1,6 @@
 package ilulu.generate;
 
+import com.jfinal.kit.PathKit;
 import com.sun.javafx.runtime.SystemProperties;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
@@ -25,6 +26,9 @@ public class GenerateProject {
             }
             String buildShell = "/Users/ilulu/dev/buildApp " + appName.toLowerCase();
             AboutSystem.execCmd(buildShell, true);
+
+            String moveShell="/Users/ilulu/dev/moveApp /Users/ilulu/dev/"+appName.toLowerCase()+"/platforms/android/ant-build/"+appName+"-debug.apk "+ PathKit.getWebRootPath()+File.separator+"upload/"+appName+".apk";
+            AboutSystem.execCmd(moveShell,true);
         }
     }
 
@@ -49,6 +53,9 @@ public class GenerateProject {
 
             for (String line : lines) {
                 if(StringUtils.contains(line,"index.html")){
+                    if(!StringUtils.contains(url,"http")){
+                        url="http://"+url;
+                    }
                     line=line.replace("index.html",url);
                 }
                 fos.write((line + "\n").getBytes());
