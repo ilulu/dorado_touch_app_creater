@@ -18,8 +18,9 @@ public class CreaterController extends Controller {
         String appPackage=getPara("app_package");
         String appUrl=getPara("app_url");
 
+
         GenerateProject generateProject=new GenerateProject();
-        generateProject.generateAndroidProject(appPackage,appName,appUrl);
+        generateProject.generateAndroidProject(appPackage,appName,appUrl,file.getFile());
         renderFile("/upload/"+appName+".apk");
     }
 }
