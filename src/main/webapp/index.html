@@ -14,52 +14,174 @@
     <meta name="apple-mobile-web-app-title" content="App Creater"/>
     <link rel="stylesheet" href="assets/css/amui.all.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
+    <link rel="stylesheet" href="css/ystep.css">
+    <style>
+        body {
+            background: url('images/preback.jpg') center center fixed no-repeat;
+            -moz-background-size: cover;
+            -webkit-background-size: cover;
+            -o-background-size: cover;
+            background-size: cover;
+        }
+    </style>
 </head>
-<body style="background:#15AFEF">
+<body>
 <!--[if lte IE 9]>
 <p class="browsehappy">你正在使用<strong>过时</strong>的浏览器，Amaze UI 暂不支持。 请 <a href="http://browsehappy.com/" target="_blank">升级浏览器</a>
     以获得更好的体验！</p>
 <![endif]-->
 <div class="am-container">
-    <h1 class="am-container am-animation-slide-right am-text-xxl" style="color: #ffffff">四个元素，一个App</h1>
+    <form id="atrFrom" action="createApp" method="post" enctype="multipart/form-data">
 
-    <div class="am-margin am-animation-slide-left"><img src="images/mascot.png"/></div>
-    <div class="am-container ">
-        <form id="atrFrom" action="createApp" method="post" enctype="multipart/form-data">
-            <div class="am-margin am-animation-slide-right">
-                <input id="app_name" name="app_name" class="am-form-field" type="text" placeholder="一个钟意的名字">
-            </div>
-            <div class="am-margin am-animation-slide-left">
-                <input id="app_package" name="app_package" class="am-form-field" type="text" placeholder="一个独特的包名">
-            </div>
-            <div class="am-margin am-animation-slide-right">
-                <input id="app_url" name="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">
-            </div>
-            <div class="am-margin am-panel am-panel-default am-animation-slide-left">
-                <div class="am-panel-bd">
-                    <p class="am-form-help">一张个性的图片</p>
-                    <input id="app_icon" name="app_icon" type="file" id="doc-ipt-file-1">
+
+
+        <ul style="margin-left:10px;margin-right: 10px " class="sm-block-grid-5">
+            <li><button id="button_name" type="button" class="am-btn am-btn-default am-btn-block" >名称</button></li>
+            <li><button id="button_pack" type="button" class="am-btn am-btn-default am-btn-block" >包名</button></li>
+            <li><button id="button_url" type="button" class="am-btn am-btn-default am-btn-block" >地址</button></li>
+            <li><button id="button_version" type="button" class="am-btn am-btn-default am-btn-block" >版本</button></li>
+            <li><button id="button_icon" type="button" class="am-btn am-btn-default am-btn-block" >图标</button></li>
+        </ul>
+
+        <div class="am-tabs" data-am-tabs>
+            <!--<ul class="am-tabs-nav am-nav am-nav-tabs">-->
+                <!--<li id="tab_title_1" class="am-active"><a href="#tab1">名称</a></li>-->
+                <!--<li id="tab_title_2"><a href="#tab2">包名</a></li>-->
+                <!--<li id="tab_title_3"><a href="#tab3">地址</a></li>-->
+                <!--<li id="tab_title_4"><a href="#tab4">版本</a></li>-->
+                <!--<li id="tab_title_5"><a href="#tab5">图标</a></li>-->
+            <!--</ul>-->
+
+
+            <div class="am-tabs-bd" style="border-width: medium 0px 0px">
+                <div class="am-tab-panel am-fade am-in am-active" id="tab1">
+                    <h1 class="am-center am-text-center">打造一个属于自己的APP应当从</h1>
+                    <input id="app_name" name="app_name" class="am-form-field " type="text" placeholder="一个钟意的名字">
+
+                    <p>
+                        <button id="button_to_tab2" type="button"
+                                class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">开始
+                        </button>
+                    </p>
+                </div>
+                <div class="am-tab-panel am-fade" id="tab2">
+                    <h1 class="am-center am-text-center">为了与其他APP区分开来需要</h1>
+                    <input id="app_package" name="app_package" class="am-form-field" type="text" placeholder="一个独特的包名">
+
+                    <p>
+                        <button id="button_to_tab3" type="button"
+                                class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">然后
+                        </button>
+                    </p>
+                </div>
+                <div class="am-tab-panel am-fade" id="tab3">
+                    <h1 class="am-center am-text-center">别忘了给APP设置用来显示内容的</h1>
+                    <input id="app_url" name="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">
+
+                    <p>
+                        <button id="button_to_tab4" type="button"
+                                class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">接下来
+                        </button>
+                    </p>
+                </div>
+                <div class="am-tab-panel am-fade" id="tab4">
+                    <h1 class="am-center am-text-center">当然少不了</h1>
+                    <input id="app_version" name="app_url" class="am-form-field" type="text" placeholder="一个有意义的版本号">
+
+                    <p>
+                        <button id="button_to_tab5" type="button"
+                                class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">最后剩下
+                        </button>
+                    </p>
+                </div>
+                <div class="am-tab-panel am-fade" id="tab5">
+
+                    <h1 class="am-center am-text-center">能够第一眼就能被记住的</h1>
+
+                    <div class="am-panel">
+                        <p class="am-form-help">一张个性的图片</p>
+                        <input id="app_icon" name="app_icon" type="file" id="doc-ipt-file-1">
+                    </div>
+                    <p>
+                        <button id="submitButton" type="submit"
+                                class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">开始创建
+                        </button>
+                    </p>
+
                 </div>
             </div>
-            <button id="submitButton" type="submit" class="am-margin am-btn am-btn-success am-animation-slide-right">
-                按下按钮并稍作等待
-            </button>
-        </form>
-    </div>
+        </div>
+    </form>
+
+    <!--<form id="atrFrom" action="createApp" method="post" enctype="multipart/form-data">-->
+    <!--<div class="am-margin am-animation-slide-right">-->
+    <!--<input id="app_name" name="app_name" class="am-form-field" type="text" placeholder="一个钟意的名字">-->
+    <!--</div>-->
+    <!--<div class="am-margin am-animation-slide-left">-->
+    <!--<input id="app_package" name="app_package" class="am-form-field" type="text" placeholder="一个独特的包名">-->
+    <!--</div>-->
+    <!--<div class="am-margin am-animation-slide-right">-->
+    <!--<input id="app_url" name="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">-->
+    <!--</div>-->
+    <!--<div class="am-margin am-panel am-panel-default am-animation-slide-left">-->
+    <!--<div class="am-panel-bd">-->
+    <!--<p class="am-form-help">一张个性的图片</p>-->
+    <!--<input id="app_icon" name="app_icon" type="file" id="doc-ipt-file-1">-->
+    <!--</div>-->
+    <!--</div>-->
+    <!--<button id="submitButton" type="submit" class="am-margin am-btn am-btn-success am-animation-slide-right">-->
+    <!--按下按钮并稍作等待-->
+    <!--</button>-->
+    <!--</form>-->
 </div>
-<script src="http://libs.baidu.com/zepto/1.1.3/zepto.min.js"></script>
-<script>window.Zepto || document.write('<script src="assets/js/zepto.min.js?1.1.3"><\/script>')</script>
+<script src="assets/js/zepto.min.js"></script>
 <script src="assets/js/amui.js"></script>
 <script src="assets/js/app.js"></script>
+<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
+<script src="js/ystep.js"></script>
 <script>
-    $('#submitButton').click(function(){
-        var $btn = $(this)
-        $btn.button('loading');
+        $('#submitButton').click(function(){
+            var $btn = $(this)
+            $btn.button('loading');
 
-        $('#atrFrom').submit(function(e){
-            $btn.button('reset');
+            $('#atrFrom').submit(function(e){
+                $btn.button('reset');
+            });
         });
+
+
+    $("#button_to_tab2").click(function () {
+        cssExr.setCurrentTab($('#tab1'), $('#tab2'));
+        cssExr.changeButtonToBlue($('#button_name'));
     });
+    $("#button_to_tab3").click(function () {
+        cssExr.setCurrentTab($('#tab2'), $('#tab3'));
+        cssExr.changeButtonToBlue($('#button_pack'));
+    });
+    $("#button_to_tab4").click(function () {
+        cssExr.setCurrentTab($('#tab3'), $('#tab4'));
+        cssExr.changeButtonToBlue($('#button_url'));
+    });
+    $("#button_to_tab5").click(function () {
+        cssExr.setCurrentTab($('#tab4'), $('#tab5'));
+        cssExr.changeButtonToBlue($('#button_version'));
+    });
+
+
+    var cssExr = {
+        setCurrentTab: function (preTab, currentTab) {
+            preTab.removeClass("am-in am-active");
+            currentTab.addClass("am-in am-active");
+        },
+        changeButtonToBlue:function(button){
+            button.removeClass("am-btn-default");
+            button.addClass("am-btn-primary");
+        },
+        chageButtonToDray:function(button){
+            button.removeClass("am-btn-primary");
+            button.addClass("am-btn-default");
+        }
+    }
 </script>
 </body>
 </html>
