@@ -11,16 +11,16 @@ import java.io.File;
  * Created by ilulu on 14-8-11.
  */
 public class CreaterController extends Controller {
-    public void index(){
-        String path_temp= PathKit.getWebRootPath()+ File.separator+"upload";
-        UploadFile file=getFile("app_icon",path_temp);
-        String appName=getPara("app_name");
-        String appPackage=getPara("app_package");
-        String appUrl=getPara("app_url");
+    public void index() {
+        String path_temp = PathKit.getWebRootPath() + File.separator + "upload";
+        UploadFile file = getFile("app_icon", path_temp);
+        String appName = getPara("app_name");
+        String appPackage = getPara("app_package");
+        String appUrl = getPara("app_url");
+        String appVersion = getPara("app_version");
 
-
-        GenerateProject generateProject=new GenerateProject();
-        generateProject.generateAndroidProject(appPackage,appName,appUrl,file.getFile());
-        renderFile("/upload/"+appName+".apk");
+        GenerateProject generateProject = new GenerateProject();
+        generateProject.generateAndroidProject(appPackage, appName, appUrl, appVersion, file.getFile());
+        renderFile("/upload/" + appName + ".apk");
     }
 }

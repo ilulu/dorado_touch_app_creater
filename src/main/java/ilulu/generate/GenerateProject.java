@@ -15,7 +15,7 @@ import java.util.ResourceBundle;
  */
 public class GenerateProject {
 
-    public void generateAndroidProject(String packageName, String appName, String url, File file) {
+    public void generateAndroidProject(String packageName, String appName, String url,String version ,File file) {
 
         String shellRootPath = PathKit.getWebRootPath() + "/shell";
         String devPath = ResourceBundle.getBundle("config").getString("dev_path");
@@ -27,6 +27,7 @@ public class GenerateProject {
             try {
                 changeIndex(projectPath, url);
                 changeLuncherIcon(projectPath, file);
+                changeVersionNum(projectPath,version);
             } catch (IOException e) {
                 e.printStackTrace();
             }
@@ -115,5 +116,38 @@ public class GenerateProject {
             e.printStackTrace();
         }
 
+    }
+
+    /**
+     * 修改版本号
+     * @param projectPath
+     * @param version
+     */
+    private void changeVersionNum(String projectPath,String version){
+        String androidManifest = projectPath + File.separator + "platforms/android/AndroidManifest.xml";
+        File file = new File(androidManifest);
+        try {
+            BufferedInputStream bis = new BufferedInputStream(new FileInputStream(file));
+            byte[] buff = new byte[(int) file.length()];
+
+            bis.read(buff);
+
+            FileOutputStream fos = new FileOutputStream(file);
+
+            String[] lines = (new String(buff)).split("\n");
+            for (String line : lines) {
+                if (StringUtils.contains(line, "android:versionName")) {
+                    line = line.replace("0.0.1", version);
+                }
+                fos.write((line + "\n").getBytes());
+            }
+            fos.flush();
+            fos.close();
+            bis.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 }

@@ -30,7 +30,7 @@
     以获得更好的体验！</p>
 <![endif]-->
 <div class="am-container">
-    <form id="atrFrom" action="createApp" method="post" enctype="multipart/form-data">
+    <form id="atrForm" action="createApp" method="post" enctype="multipart/form-data">
 
 
         <ul style="margin-left:10px;margin-right: 10px " class="sm-block-grid-5">
@@ -56,7 +56,7 @@
                 <div class="am-tab-panel am-fade am-in am-active" id="tab1">
                     <h1 class="am-center am-text-center">打造一个属于自己的APP应当从</h1>
 
-                    <div id="div_app_name" class="am-form-group am-form-icon am-form-feedback">
+                    <div id="div_app_name" class="am-form-group am-form-icon am-form-feedback am-margin-top-xl">
                         <input id="app_name" name="app_name" class="am-form-field " type="text" placeholder="一个钟意的名字">
                     </div>
                     <p>
@@ -68,7 +68,7 @@
                 <div class="am-tab-panel am-fade" id="tab2">
                     <h1 class="am-center am-text-center">为了与其他APP区分开来需要</h1>
 
-                    <div id="div_app_package" class="am-form-group am-form-icon am-form-feedback">
+                    <div id="div_app_package" class="am-form-group am-form-icon am-form-feedback am-margin-top-xl">
                         <input id="app_package" name="app_package" class="am-form-field" type="text"
                                placeholder="一个独特的包名">
                     </div>
@@ -81,7 +81,7 @@
                 <div class="am-tab-panel am-fade" id="tab3">
                     <h1 class="am-center am-text-center">别忘了给APP设置用来显示内容的</h1>
 
-                    <div id="div_app_url" class="am-form-group am-form-icon am-form-feedback">
+                    <div id="div_app_url" class="am-form-group am-form-icon am-form-feedback am-margin-top-xl">
                         <input id="app_url" name="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">
                     </div>
                     <p>
@@ -93,8 +93,8 @@
                 <div class="am-tab-panel am-fade" id="tab4">
                     <h1 class="am-center am-text-center">当然少不了</h1>
 
-                    <div id="div_app_version" class="am-form-group am-form-icon am-form-feedback">
-                        <input id="app_version" name="app_url" class="am-form-field" type="text"
+                    <div id="div_app_version" class="am-form-group am-form-icon am-form-feedback am-margin-top-xl">
+                        <input id="app_version" name="app_version" class="am-form-field" type="text"
                                placeholder="一个有意义的版本号">
                     </div>
                     <p>
@@ -103,7 +103,7 @@
                         </button>
                     </p>
                 </div>
-                <div class="am-tab-panel am-fade" id="tab5">
+                <div class="am-tab-panel am-fade am-margin-top-xl" id="tab5">
 
                     <h1 class="am-center am-text-center">能够第一眼就能被记住的</h1>
 
@@ -154,9 +154,10 @@
     $('#submitButton').click(function () {
         var $btn = $(this)
         $btn.button('loading');
-        $('#atrFrom').submit(function (e) {
-            $btn.button('reset');
-        });
+        $('#atrForm').submit();
+//        $('#atrForm').submit(function (e) {
+//            $btn.button('reset');
+//        });
     });
 
 
