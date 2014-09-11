@@ -14,7 +14,6 @@
     <meta name="apple-mobile-web-app-title" content="App Creater"/>
     <link rel="stylesheet" href="assets/css/amui.all.min.css">
     <link rel="stylesheet" href="assets/css/app.css">
-    <link rel="stylesheet" href="css/ystep.css">
     <style>
         body {
             background: url('images/preback.jpg') center center fixed no-repeat;
@@ -34,30 +33,32 @@
     <form id="atrFrom" action="createApp" method="post" enctype="multipart/form-data">
 
 
-
         <ul style="margin-left:10px;margin-right: 10px " class="sm-block-grid-5">
-            <li><button id="button_name" type="button" class="am-btn am-btn-default am-btn-block" >名称</button></li>
-            <li><button id="button_pack" type="button" class="am-btn am-btn-default am-btn-block" >包名</button></li>
-            <li><button id="button_url" type="button" class="am-btn am-btn-default am-btn-block" >地址</button></li>
-            <li><button id="button_version" type="button" class="am-btn am-btn-default am-btn-block" >版本</button></li>
-            <li><button id="button_icon" type="button" class="am-btn am-btn-default am-btn-block" >图标</button></li>
+            <li>
+                <button id="button_name" type="button" class="am-btn am-btn-primary am-btn-block">名称</button>
+            </li>
+            <li>
+                <button id="button_pack" type="button" class="am-btn am-btn-default am-btn-block">包名</button>
+            </li>
+            <li>
+                <button id="button_url" type="button" class="am-btn am-btn-default am-btn-block">地址</button>
+            </li>
+            <li>
+                <button id="button_version" type="button" class="am-btn am-btn-default am-btn-block">版本</button>
+            </li>
+            <li>
+                <button id="button_icon" type="button" class="am-btn am-btn-default am-btn-block">图标</button>
+            </li>
         </ul>
 
-        <div class="am-tabs" data-am-tabs>
-            <!--<ul class="am-tabs-nav am-nav am-nav-tabs">-->
-                <!--<li id="tab_title_1" class="am-active"><a href="#tab1">名称</a></li>-->
-                <!--<li id="tab_title_2"><a href="#tab2">包名</a></li>-->
-                <!--<li id="tab_title_3"><a href="#tab3">地址</a></li>-->
-                <!--<li id="tab_title_4"><a href="#tab4">版本</a></li>-->
-                <!--<li id="tab_title_5"><a href="#tab5">图标</a></li>-->
-            <!--</ul>-->
-
-
+        <div class="am-tabs" data-am-tabs style="margin-top: 40px">
             <div class="am-tabs-bd" style="border-width: medium 0px 0px">
                 <div class="am-tab-panel am-fade am-in am-active" id="tab1">
                     <h1 class="am-center am-text-center">打造一个属于自己的APP应当从</h1>
-                    <input id="app_name" name="app_name" class="am-form-field " type="text" placeholder="一个钟意的名字">
 
+                    <div id="div_app_name" class="am-form-group am-form-icon am-form-feedback">
+                        <input id="app_name" name="app_name" class="am-form-field " type="text" placeholder="一个钟意的名字">
+                    </div>
                     <p>
                         <button id="button_to_tab2" type="button"
                                 class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">开始
@@ -66,8 +67,11 @@
                 </div>
                 <div class="am-tab-panel am-fade" id="tab2">
                     <h1 class="am-center am-text-center">为了与其他APP区分开来需要</h1>
-                    <input id="app_package" name="app_package" class="am-form-field" type="text" placeholder="一个独特的包名">
 
+                    <div id="div_app_package" class="am-form-group am-form-icon am-form-feedback">
+                        <input id="app_package" name="app_package" class="am-form-field" type="text"
+                               placeholder="一个独特的包名">
+                    </div>
                     <p>
                         <button id="button_to_tab3" type="button"
                                 class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">然后
@@ -76,8 +80,10 @@
                 </div>
                 <div class="am-tab-panel am-fade" id="tab3">
                     <h1 class="am-center am-text-center">别忘了给APP设置用来显示内容的</h1>
-                    <input id="app_url" name="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">
 
+                    <div id="div_app_url" class="am-form-group am-form-icon am-form-feedback">
+                        <input id="app_url" name="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">
+                    </div>
                     <p>
                         <button id="button_to_tab4" type="button"
                                 class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">接下来
@@ -86,8 +92,11 @@
                 </div>
                 <div class="am-tab-panel am-fade" id="tab4">
                     <h1 class="am-center am-text-center">当然少不了</h1>
-                    <input id="app_version" name="app_url" class="am-form-field" type="text" placeholder="一个有意义的版本号">
 
+                    <div id="div_app_version" class="am-form-group am-form-icon am-form-feedback">
+                        <input id="app_version" name="app_url" class="am-form-field" type="text"
+                               placeholder="一个有意义的版本号">
+                    </div>
                     <p>
                         <button id="button_to_tab5" type="button"
                                 class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">最后剩下
@@ -103,8 +112,8 @@
                         <input id="app_icon" name="app_icon" type="file" id="doc-ipt-file-1">
                     </div>
                     <p>
-                        <button id="submitButton" type="submit"
-                                class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-primary am-center">开始创建
+                        <button id="submitButton" type="button"
+                                class="am-btn am-padding-horizontal-xl am-btn-lg am-btn-success am-center">开始创建
                         </button>
                     </p>
 
@@ -112,59 +121,73 @@
             </div>
         </div>
     </form>
-
-    <!--<form id="atrFrom" action="createApp" method="post" enctype="multipart/form-data">-->
-    <!--<div class="am-margin am-animation-slide-right">-->
-    <!--<input id="app_name" name="app_name" class="am-form-field" type="text" placeholder="一个钟意的名字">-->
-    <!--</div>-->
-    <!--<div class="am-margin am-animation-slide-left">-->
-    <!--<input id="app_package" name="app_package" class="am-form-field" type="text" placeholder="一个独特的包名">-->
-    <!--</div>-->
-    <!--<div class="am-margin am-animation-slide-right">-->
-    <!--<input id="app_url" name="app_url" class="am-form-field" type="text" placeholder="一个好记的地址">-->
-    <!--</div>-->
-    <!--<div class="am-margin am-panel am-panel-default am-animation-slide-left">-->
-    <!--<div class="am-panel-bd">-->
-    <!--<p class="am-form-help">一张个性的图片</p>-->
-    <!--<input id="app_icon" name="app_icon" type="file" id="doc-ipt-file-1">-->
-    <!--</div>-->
-    <!--</div>-->
-    <!--<button id="submitButton" type="submit" class="am-margin am-btn am-btn-success am-animation-slide-right">-->
-    <!--按下按钮并稍作等待-->
-    <!--</button>-->
-    <!--</form>-->
 </div>
 <script src="assets/js/zepto.min.js"></script>
 <script src="assets/js/amui.js"></script>
 <script src="assets/js/app.js"></script>
-<script src="http://libs.useso.com/js/jquery/2.1.1/jquery.min.js"></script>
-<script src="js/ystep.js"></script>
 <script>
-        $('#submitButton').click(function(){
-            var $btn = $(this)
-            $btn.button('loading');
 
-            $('#atrFrom').submit(function(e){
-                $btn.button('reset');
-            });
+    var appFunction={
+        tabs:['#tab1','#tab2','#tab3','#tab4','#tab5'],
+        buttons_to_nav:['#button_name','#button_pack','#button_url','#button_version','#button_icon'],
+        buttons_to_tab: ['#button_to_tab2', '#button_to_tab3', '#button_to_tab4', '#button_to_tab5'],
+        textEditors:['#app_name','#app_package','#app_url','#app_version','#app_icon'],
+        textDivs:['#div_app_name','#div_app_package','#div_app_url','#div_app_version',''],
+
+        buttonOnClick: function (index) {
+            var textEditor=$(this.textEditors[index]);
+            var textDiv=$(this.textDivs[index]);
+            var text=textEditor.attr('value');
+            if(text.length>0){
+                textDiv.removeClass("am-form-error");
+                cssExr.setCurrentTab($(this.tabs[index]),$(this.tabs[index+1]));
+                cssExr.changeButtonToBlue($(this.buttons_to_nav[index+1]));
+            }else{
+                textEditor.addClass("am-animation-shake").one('webkitAnimationEnd mozAnimationEnd MSAnimationEnd oanimationend animationend',function(){
+                    $(this).removeClass("am-animation-shake");
+                });
+                textDiv.addClass("am-form-error");
+            }
+        }
+    };
+
+    $('#submitButton').click(function () {
+        var $btn = $(this)
+        $btn.button('loading');
+        $('#atrFrom').submit(function (e) {
+            $btn.button('reset');
         });
+    });
 
 
     $("#button_to_tab2").click(function () {
-        cssExr.setCurrentTab($('#tab1'), $('#tab2'));
-        cssExr.changeButtonToBlue($('#button_name'));
+        appFunction.buttonOnClick(0);
     });
     $("#button_to_tab3").click(function () {
-        cssExr.setCurrentTab($('#tab2'), $('#tab3'));
-        cssExr.changeButtonToBlue($('#button_pack'));
+        appFunction.buttonOnClick(1);
     });
     $("#button_to_tab4").click(function () {
-        cssExr.setCurrentTab($('#tab3'), $('#tab4'));
-        cssExr.changeButtonToBlue($('#button_url'));
+        appFunction.buttonOnClick(2);
     });
     $("#button_to_tab5").click(function () {
-        cssExr.setCurrentTab($('#tab4'), $('#tab5'));
-        cssExr.changeButtonToBlue($('#button_version'));
+        appFunction.buttonOnClick(3);
+    });
+
+
+    $('#button_name').click(function () {
+        $('#tab1').addClass("am-in am-active");
+    });
+    $('#button_pack').click(function () {
+        $('#tab2').addClass("am-in am-active");
+    });
+    $('#button_url').click(function () {
+        $('#tab3').addClass("am-in am-active");
+    });
+    $('#button_version').click(function () {
+        $('#tab4').addClass("am-in am-active");
+    });
+    $('#button_icon').click(function () {
+        $('#tab5').addClass("am-in am-active");
     });
 
 
@@ -173,15 +196,17 @@
             preTab.removeClass("am-in am-active");
             currentTab.addClass("am-in am-active");
         },
-        changeButtonToBlue:function(button){
+        changeButtonToBlue: function (button) {
             button.removeClass("am-btn-default");
             button.addClass("am-btn-primary");
         },
-        chageButtonToDray:function(button){
+        chageButtonToDray: function (button) {
             button.removeClass("am-btn-primary");
             button.addClass("am-btn-default");
         }
     }
+
+
 </script>
 </body>
 </html>

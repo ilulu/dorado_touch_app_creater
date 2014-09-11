@@ -333,7 +333,7 @@ input::-moz-focus-inner {
   padding: 0;
 }
 /**
- * Fix the cursor style for Chrome's increment/decrement buttons. For certain
+ * Fix the cursor style for Chrome's increment/decrement buttons_to_tab. For certain
  * `font-size` values of the `input`, it causes the cursor style of the
  * decrement button to change from `default` to `text`.
  */
@@ -2025,7 +2025,7 @@ fieldset[disabled] .am-btn-link:focus {
   padding-left: 0;
   padding-right: 0;
 }
-/* Multiple block buttons vertically space */
+/* Multiple block buttons_to_tab vertically space */
 .am-btn-block + .am-btn-block {
   margin-top: 5px;
 }
